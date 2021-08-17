@@ -112,7 +112,8 @@
 
 ### index. 한글이름 [테이블이름] (테이블 안의 변수들)
 
-### 1. 회원정보 [USER_INFO] (USER_ID, USER_PassWord, USER_Name, USER_NickName, USER_Phone, USER_Address, USER_Group)
+### 1. 회원정보 
+### [USER_INFO] (USER_ID, USER_PassWord, USER_Name, USER_NickName, USER_Phone, USER_Address, USER_Group)
 
 - ID(PK) : 로그인하기 위한 정보, 기본키 
 - PassWord : 로그인하기 위한 정보
@@ -122,7 +123,8 @@
 - Address : 택배 보낼 수도 있음
 - Group : 관리자 / 유저
 
-### 2. 심리테스트 [PSY_TEST] (TEST_No, TEST_Head, TEST_ProblemInfo, Desc, TEST_OpenTime, TEST_StarTime, TEST_IsPost)
+### 2. 심리테스트
+### [PSY_TEST] (TEST_No, TEST_Head, TEST_ProblemInfo, Desc, TEST_OpenTime, TEST_StarTime, TEST_IsPost)
 
 - TEST_NO(PK) : Test 식별자
 - TEST_Head : 심리테스트 제목
@@ -133,7 +135,8 @@
 - TEST_UploadTime: 심리테스트를 올린 시간
 - TEST_IsPost : 게시 가능 여부
 
-### 3. 심리테스트\_History [PSY_TEST_HIST] (HIST_ID, HIST_IP, HIST_Device, HIST_Result, HIST_Satisfaction, HIST_StarTime, HIST_EndTime, HIST_TestID, HIST_UserID)
+### 3. 심리테스트\_History
+### [PSY_TEST_HIST] (HIST_ID, HIST_IP, HIST_Device, HIST_Result, HIST_Satisfaction, HIST_StarTime, HIST_EndTime, HIST_TestID, HIST_UserID)
 
 - HIST_ID : 년+월+일+초+IP로 아이디 생성
 - HIST_IP : 조회수 사기를 막기 위함
