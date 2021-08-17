@@ -110,33 +110,41 @@
 
 ## [DB]
 
-### 1. 회원정보(ID, PassWord, Name, NickName, Address, Group)
+### index. 한글이름 [테이블이름] (테이블 안의 변수들)
 
-- ID(PK), PassWord : 로그인하기 위한 정보
+### 1. 회원정보 [USER_INFO] (USER_ID, USER_PassWord, USER_Name, USER_NickName, USER_Phone, USER_Address, USER_Group)
+
+- ID(PK) : 로그인하기 위한 정보, 기본키 
+- PassWord : 로그인하기 위한 정보
 - Name : 개인정보
 - NickName : 카페에서 사용할 닉네임
 - Phone: 연락 수단
 - Address : 택배 보낼 수도 있음
 - Group : 관리자 / 유저
 
-### 2. 심리테스트(TestNo, Desc, OpenTime, StarTime)
+### 2. 심리테스트 [PSY_TEST] (TEST_No, TEST_Head, TEST_ProblemInfo, Desc, TEST_OpenTime, TEST_StarTime, TEST_IsPost)
 
-- TestNo(PK) : Test 식별자
-- TestHead : 심리테스트 제목
-- TestProblemInfo : 문제 전체를 담음 (아래에 변경사항 - 지문관리)
-- Desc : 테스트 설명
-- uploadTime: 심리테스트를 올린 시간
-- isPost : 게시 가능 여부
+- TEST_NO(PK) : Test 식별자
+- TEST_Head : 심리테스트 제목
+- TEST_ProblemInfo : 문제 전체를 담음 (아래에 변경사항 - 지문관리)
+- TEST_Desc : 테스트 설명
+- TEST_OpenTime : 
+- TEST_StarTime : 
+- TEST_UploadTime: 심리테스트를 올린 시간
+- TEST_IsPost : 게시 가능 여부
 
-### 3. 심리테스트\_History (HistID, IP, Device, Result, Satisfaction, StartTime, EndTime, TestNo, ID)
+### 3. 심리테스트\_History [PSY_TEST_HIST] (HIST_ID, HIST_IP, HIST_Device, HIST_Result, HIST_Satisfaction, HIST_StarTime, HIST_EndTime, HIST_TestID, HIST_UserID)
 
-- HistID : 년+월+일+초+IP로 아이디 생성
-- IP, Device: 조회수 사기를 막기 위함
-- Result : 심리테스트 결과
-- Satisfaction : 만족도
-- StartTime, EndTime : 평균 완료시간
-- TestID : 심리테스트 식별자 (FK)
-- ID : 회원 확인 (FK)
+- HIST_ID : 년+월+일+초+IP로 아이디 생성
+- HIST_IP : 조회수 사기를 막기 위함
+- HIST_Device: 조회수 사기를 막기 위함
+- HIST_Result : 심리테스트 결과
+- HIST_Satisfaction : 만족도
+- HIST_StarTime : 평균 완료시간 측정을 위함
+- HIST_EndTime : 평균 완료시간 측정을 위함
+- HIST_TestID : 심리테스트 식별자 (FK_PsyTest_TestNO)
+- HIST_UserID : 회원 확인 (FK_UserInfo_UserID)
+
 
 ---
 
@@ -165,9 +173,15 @@ const seletItem = items.slice(1); // 선택지
 
 ---
 
+# 참고 사항
+DB - Time류의 변수는 TimeStamp Type
+     IsPost류의 변수는 TINYINT(1)
+     FK Constraint 사용
+
 # 문서 버전
 
 - 2021.06.04 v1220
 - 2021.07.11 v1280
 - 2021.07.24 v1290
 - 2021.07.25 v1300 [최근 문서]
+- 2021.08.17 v1310 [BE - DB 컬럼명 수정]
